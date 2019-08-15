@@ -18,18 +18,21 @@
                 </header>
                 <section class="container">
                     <section class="container__content">
-                        Primeiro nome: 
-                        <input v-model="primeiroNome" /> <br>
-
-                        Segundo nome:
-                        <input v-model="segundoNome" /> <br>
-
-                        {{ nomeCompleto }}
+                        
+                        Digite um novo contato:
+                        <input type="text" v-model="nome"> {{ aviso }} <br>
+                        <div v-if="nomePronto">
+                            <button @click="addContato">Adicionar</button>
+                        </div>
                                
                     </section>
                     <aside class="container__sidebar">
         
-                        
+                       <ul>
+                           <li v-for="contato in contatos">{{ contato }}</li>
+                       </ul>
+
+                       {{ totalContatos }}
         
                     </aside>
                 </section>
